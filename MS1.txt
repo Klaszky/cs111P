@@ -45,16 +45,30 @@ Object Period Fields:
 
 Object Course Methods:
 
-	Constructor()
+	Constructor(String courseName, Period classTime, int numCredits, int departmentCode, int classCode)
+
+	void setInstructor - simple setter method
+
+	String getInstructor - simple getter method
+
+	int getDepartmentCode - simple getter method
+
+	int getClassCode - simple getter method
+
+	String toString - will print out: Course Code - Course name - Day of week - Period - Number of credits
 
 
 Object Student Methods:
 
-	Constructor()
+	Constructor(String name)
 
 	boolean addCourse - Checks current course periods to make sure there is no overlap.Checks to make sure student isn't at max courses. Checks to make sure Course isn't at its limit of students. If all is cool then adds course to student's "courses" field, increments student's "numCourses", increments course's "numberStudents". Returns true if the class can be added and false if it can't be.
 
 	void removeCourse - Removes a student from a class. Decrements course's "numberStudents" and student's "numCourses". Removes course from student's "courses".
+
+	String getStudentsName - simple getter method
+
+	int getNumCourses - simple getter method
 
 
 Object Period Methods:	
