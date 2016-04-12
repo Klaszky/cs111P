@@ -1,3 +1,66 @@
 MS1.txt
 
-Yar!
+Object Course Fields:
+
+	String courseName - Full name of the course (Example: "Data Structures")
+	
+	String instructor - Name of person teaching the course (Example: "Andrew Tjang")
+	
+	final int MAXSTUDENTS - Maxim number of students a class can hold
+	
+	int numStudentsInClass - Number of students currently enrolled in course
+	
+	int departmentCode - A three digit int that represents the which department the course is being taken in (Example: 198)
+	
+	int classCode - A three digit in that represents which specific class is being taken (Example: 112)
+	
+	int numCredits - An int representing how much credits the class is worth (Example: 4)
+	
+	Period classTime - One of Nine class periods on one of six days
+
+
+Object Student Fields:
+
+	String name - Student's full name
+	
+	courses[] currentClasses - Array of classes currently being taken
+	
+	periods[] currentPeriods - Array of class meeting times 
+	
+	Final int MAXCOURSES - A student has a maximum number of classes they can take
+	
+	int numCourses - Number of course that a student is currently taking
+
+
+Object Period Fields:
+
+	char meetingDay - One of: M, T, W, H, F, or S
+	
+	int meetingPeriod - An int between 1 - 9 that represents the time of day the class 
+		meets
+
+
+######################################################
+
+
+Object Course Methods:
+
+	Constructor()
+
+
+Object Student Methods:
+
+	Constructor()
+
+	boolean addCourse - Checks current course periods to make sure there is no overlap.Checks to make sure student isn't at max courses. Checks to make sure Course isn't at its limit of students. If all is cool then adds course to student's "courses" field, increments student's "numCourses", increments course's "numberStudents". Returns true if the class can be added and false if it can't be.
+
+	void removeCourse - Removes a student from a class. Decrements course's "numberStudents" and student's "numCourses". Removes course from student's "courses".
+
+
+Object Period Methods:	
+
+	Constructor(char mettingDay, int meetingPeriod) - creates the period char 
+
+	getMeetingDay - simple getter method
+	
+	int getMeetingPeriod - simple getter method
