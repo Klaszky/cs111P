@@ -22,14 +22,13 @@ Object Course Fields:
 	
 	Period classTime - One of Nine class periods on one of six days
 
+	*Course[] catalog* - Won't be in the class object, but I will need to store the catalog of all class objects created so that students can add them
 
 Object Student Fields:
 
 	String name - Student's full name
 	
-	courses[] currentClasses - Array of classes currently being taken
-	
-	periods[] currentPeriods - Array of class meeting times 
+	courses[] currentClasses - Array of classes currently being taken 
 	
 	Final int MAXCOURSES - A student has a maximum number of classes they can take
 	
@@ -40,9 +39,14 @@ Object Period Fields:
 	
 	int meetingPeriod - An int between 1 - 9 that represents the time of day the class meets
 
-	String startDate - A string in the format of "Month/Day/Year"
+	final double firstClassTime - Where times will start and will essenstiall set the schedule (Example first class is at 8 it will end at 9 there will be a 30 minute break and then period 2 will begin at 9:30)
 
-	String endDate - A string in the format of "Month/Day/Year"
+	double startTime - a positive double that represents the hour to the left of the decimal point and the minutes to the right of the decimal point (Example first class is at 8.0 representing 8 o'clock)
+
+	double endTime - endTime will be StartTime + one hour and a half (Example first class starts at 8.0 so it ends at 8.0 + 1.5 which is 9.5 or 9:30)
+
+	Final double timeBetweenClasses - a fixed number that will be put between each class to give students time to travel from one class to another
+
 
 
 #############################################################
@@ -54,40 +58,40 @@ Object Course Methods:
 
 	void addStudent(Student s) - adds a student
 
-	void setInstructor - simple setter method
+	void setInstructor(String instructor) - simple setter method
 
-	String getInstructor - simple getter method
+	String getInstructor() - simple getter method
 
-	int getDepartmentCode - simple getter method
+	int getDepartmentCode() - simple getter method
 
-	int getClassCode - simple getter method
+	int getClassCode() - simple getter method
 
-	boolean isFull - returns true is the course is already full
+	boolean isFull() - returns true is the course is already full
 
-	String toString - will print out: Course Code - Course name - Day of week - Period - Number of credits
+	boolean isSameTime(Course c) - returns true if the meeting day and period is the same 
+
+	String toString() - will print out: Course Code - Course name - Day of week - Period - Number of credits
 
 
 Object Student Methods:
 
-	Constructor(String name)
+	Constructor(String name)-
 
-	boolean addCourse - Checks current course periods to make sure there is no overlap.Checks to make sure student isn't at max courses. Checks to make sure Course isn't at its limit of students. If all is cool then adds course to student's "courses" field, increments student's "numCourses", increments course's "numberStudents". Returns true if the class can be added and false if it can't be.
+	boolean addCourse(Course c) - Checks current course periods to make sure there is no overlap.Checks to make sure student isn't at max courses. Checks to make sure Course isn't at its limit of students. If all is cool then adds course to student's "courses" field, increments student's "numCourses", increments course's "numberStudents". Returns true if the class can be added and false if it can't be.
 
-	void removeCourse - Removes a student from a class. Decrements course's "numberStudents" and student's "numCourses". Removes course from student's "courses".
+	void removeCourse(Course c) - Removes a student from a class. Decrements course's "numberStudents" and student's "numCourses". Removes course from student's "courses".
 
-	String getStudentsName - simple getter method
+	String getStudentsName() - simple getter method
 
-	int getNumCourses - simple getter method
+	int getNumCourses() - simple getter method
+
+	void printSchedule() -
 
 
 Object Period Methods:	
 
-	Constructor(char mettingDay, int meetingPeriod, String endDate, String startDate) - creates the period char 
+	Constructor(int meetingPeriod) - creates the period char and sets the startTime and endTime 
 
-	String getEndDate - simple getter method
-
-	String getStartDate - simple getter method
-
-	char getMeetingDay - simple getter method
+	private void setStartTime(int meetingPeriod) - Takes the period and figures out the time based by multiplying the period  
 	
 	int getMeetingPeriod - simple getter method
