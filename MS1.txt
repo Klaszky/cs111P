@@ -27,6 +27,8 @@ Object Course Fields:
 Object Student Fields:
 
 	String name - Student's full name
+
+	int idNum - unique ID give to each student to avoid the confusion of duplicate names
 	
 	courses[] currentClasses - Array of classes currently being taken 
 	
