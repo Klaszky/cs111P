@@ -9,6 +9,8 @@ Object Course Fields:
 	final int MAXSTUDENTS - Maxim number of students a class can hold
 	
 	int numStudentsInClass - Number of students currently enrolled in course
+
+	Student[] roster - Array of all the students in a class for the instructor's benefit array's size will be Student[MAXSTUDENTS]
 	
 	int departmentCode - A three digit int that represents the which department the course is being taken in (Example: 198)
 	
@@ -39,13 +41,19 @@ Object Period Fields:
 	int meetingPeriod - An int between 1 - 9 that represents the time of day the class 
 		meets
 
+	String startDate - A string in the format of "Month/Day/Year"
 
-######################################################
+	String endDate - A string in the format of "Month/Day/Year"
+
+
+#############################################################
 
 
 Object Course Methods:
 
 	Constructor(String courseName, Period classTime, int numCredits, int departmentCode, int classCode)
+
+	void addStudent(Student s) - adds a student
 
 	void setInstructor - simple setter method
 
@@ -73,8 +81,12 @@ Object Student Methods:
 
 Object Period Methods:	
 
-	Constructor(char mettingDay, int meetingPeriod) - creates the period char 
+	Constructor(char mettingDay, int meetingPeriod, String endDate, String startDate) - creates the period char 
 
-	getMeetingDay - simple getter method
+	String getEndDate - simple getter method
+
+	String getStartDate - simple getter method
+
+	char getMeetingDay - simple getter method
 	
 	int getMeetingPeriod - simple getter method
