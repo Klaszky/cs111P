@@ -1,7 +1,23 @@
 public class Period
 {
-	public static void main(String[] args)
+	private char day;
+	private int timeSlot;
+
+	public Period(char day, int timeSlot)
 	{
-		return;
+		this.day = day;
+		this.timeSlot = timeSlot;
 	}
+
+	public char getDay()
+	{}
+
+	public int getTimeSlot()
+	{}
+
+	public String toString()
+	{}
+
+	public int compateTo(Period other)
+	{}
 }
