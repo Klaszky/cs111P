@@ -54,13 +54,13 @@ public class WebRegApp{
 			}
 			else if (choice == 3){
 
-				//WebReg.sortByNumber(catalog);
-				//printArray(catalog);
+				WebReg.sortByNumber(catalog);
+				printArray(catalog);
 			}
 			else if (choice == 4){
 
-				//WebReg.sortByTime(catalog);
-				//printArray(catalog);
+				WebReg.sortByTime(catalog);
+				printArray(catalog);
 			}
 			else if (choice == 5){
 

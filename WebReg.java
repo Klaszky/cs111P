@@ -1,5 +1,7 @@
 public class WebReg
 {
+//////////////////////////////////////////////////////////
+	//  Main Methods
 	public static Course lookupCourseByName(Course[] catalog, String courseName)
 	{
 		for(Course c : catalog)
@@ -106,6 +108,9 @@ public class WebReg
 
 		return false;
 	}
+
+//////////////////////////////////////////////////////////
+	//  Sorting Methods
 
 //////////////////////////////////////////////////////////
 	//  Helper Methods
@@ -249,4 +254,3 @@ public class WebReg
 	}
 
 }
-
