@@ -109,8 +109,93 @@ public class WebReg
 		return false;
 	}
 
+	public static Course[] commonCourses(Student one, Student two)
+	{
+		int counter = 0;
+		Course[] common;
+		for(int i = 0; i < one.getSchedule().length; i++)
+		{
+			for(int j = 0; j < two.getSchedule().length; j++)
+			{
+				if(one.getSchedule()[i] != null && two.getSchedule()[j] != null)
+				{
+					if(one.getSchedule()[i].equals(two.getSchedule()[j]))
+					{
+						counter++;
+					}
+				}
+			}
+		}
+
+		if(counter == 0)
+		{
+			return null;
+		}
+
+		common = new Course[counter];
+		counter = 0;
+
+		for(int i = 0; i < one.getSchedule().length; i++)
+		{
+			for(int j = 0; j < two.getSchedule().length; j++)
+			{
+				if(one.getSchedule()[i] != null && two.getSchedule()[j] != null)
+				{
+					if(one.getSchedule()[i].equals(two.getSchedule()[j]))
+					{
+						common[counter] = one.getSchedule()[i];
+						counter++;
+					}
+				}
+			}
+		}
+
+		return common;
+	}
+
 //////////////////////////////////////////////////////////
 	//  Sorting Methods
+
+	public static void sortByNumber(Course[] catalog)
+	{
+		int itemsSorted;
+		Course temp;
+		int loc;
+
+		for(itemsSorted = 1; itemsSorted < catalog.length; itemsSorted++)
+		{
+			temp = catalog[itemsSorted];
+			loc = itemsSorted - 1;
+
+			while(loc >= 0 && fullID(catalog[loc]) > fullID(temp))
+			{
+				catalog[loc + 1] = catalog[loc];
+				loc--;
+			}
+
+			catalog[loc + 1] = temp;
+		}
+	}
+
+	public static void sortByTime(Course[] catalog)
+	{
+		int itemsSorted;
+		Course temp;
+		int loc;
+
+		for(itemsSorted = 1; itemsSorted < catalog.length; itemsSorted++)
+		{
+			temp = catalog[itemsSorted];
+			loc = itemsSorted - 1;
+
+			while(loc >= 0 && catalog[loc].getPeriod().compareTo(temp.getPeriod()) > 0)
+			{
+				catalog[loc + 1] = catalog[loc];
+				loc--;
+			}
+			catalog[loc + 1] = temp;
+		}
+	}
 
 //////////////////////////////////////////////////////////
 	//  Helper Methods
@@ -251,6 +336,11 @@ public class WebReg
 				}
 			}
 		}
+	}
+
+	public static int fullID(Course c)
+	{
+		return (c.getDepartment()*1000) + c.getCourseNumber();
 	}
 
 }
